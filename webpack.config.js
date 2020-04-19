@@ -12,9 +12,9 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         use: [
-          {
-            loader: "ts-loader",
-          },
+          path.resolve(__dirname, "lib/logger-loader-beffore.js"),
+          "ts-loader",
+          path.resolve(__dirname, "lib/logger-loader-after.js"), // 後ろから読まれるのでafterという名前だがこれが先に呼ばれる
         ],
         exclude: /node_modules/,
       },
